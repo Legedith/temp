@@ -1,0 +1,65 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Registration Form</title>
+	<style type="text/css">
+		.myDiv{
+			align-items: center;
+    		width:50%;
+    		height:50%;
+    		background:grey;
+			}
+		body{
+			background-color: black;
+		}
+	</style>
+	<SCRIPT type="text/javascript">
+	function display()
+{
+var x=document.details.fname.value;
+var y=document.details.lname.value;
+var z=document.details.phnum.value;
+var e=document.details.em.value;
+
+if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(e))
+  {
+    alert("FIRST NAME: "+x+"     "+"LAST NAME: "+y+"		"+"E-mail: "+e+"     "+"PHONE NUMBER: "+z);
+  }
+else{
+	alert("You have entered an invalid email address!")
+    
+}
+ 
+
+
+}
+</SCRIPT>
+</head>
+<body>
+	<center><h1 style="background-color:rgb(37, 139, 186); width: 500px;">Registration Form</h1></center>
+	<center><div class="myDiv">
+		 <form name="details">
+		 	<label>FIRST NAME : </label><br>
+		 	<input type="text" name="fname" required>
+		 	<br>
+		 	<br>
+		 	<label>LAST NAME : </label><br>
+		 	<input type="text" name="lname" required>
+		 	<br>
+		 	<br>
+		 	<label>PHONE NUMBER:</label><br>
+		 	<input type="number" name="phnum">
+		 	<br>
+		 	<br>
+		 	<label>E-mail:</label><br>
+		 	<input type="email" name="em">
+		 	<br>
+		 	<br>
+		 	<input type="button" value="SUBMIT" onclick="display();">
+		 	<input type="reset" value="Reset" name="">
+		 </form>
+		</div></center>
+</body>
+</html>
+<html>
