@@ -1,41 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script>
-        // create a array of 12 size to store the start day of each month
-        var startDay = new Array(12);
-        startDay[0] = 5;
-        startDay[1] = 1;
-        startDay[2] = 1;
-        startDay[3] = 4;
-        startDay[4] = 6;
-        startDay[5] = 2;
-        startDay[6] = 4;
-        startDay[7] = 0;
-        startDay[8] = 3;
-        startDay[9] = 5;
-        startDay[10] = 1;
-        startDay[11] = 3;
-
-        // Modify dom element ul "weekdays" to start the days based on startDay
-        function setWeekdays(n) {
-            var weekdays = document.getElementsByClassName("weekdays");
-            weekdays.innerHTML = "";
-            console.log(weekdays);
-            // add list of 7 days to weekdays
-            for (var i = 0; i < 7; i++) {
-                var li = document.createElement("li");
-                li.appendChild(document.createTextNode(getDay(i+startDay[n])));
-                weekdays.innerHTML += li;
-            }
-            console.log(weekdays);
-        }
-        function getDay(n) {
-            var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-            return days[n];
-        }
-        setWeekdays(0);
-    </script>
     <style>
       * {
         box-sizing: border-box;
@@ -116,61 +81,80 @@
     </style>
   </head>
   <body>
-    <!-- Add a list of 12 months and a button to call function with selected month -->
-    
-    <h1>CSS Calendar</h1>
+    <h1>Static calendar</h1>
     <div class="month">
       <ul>
-        <li class="prev">&#10094;</li>
-        <li class="next">&#10095;</li>
-        <li> August <br>
+        <li id="month_name"> August <br>
           <span style="font-size:18px">2022</span>
         </li>
       </ul>
     </div>
-    <ul class="weekdays">
-      <li>Mo</li>
-      <li>Tu</li>
-      <li>We</li>
-      <li>Th</li>
-      <li>Fr</li>
-      <li>Sa</li>
-      <li>Su</li>
+    <ul id="weekdays" class="weekdays">
     </ul>
-    <ul class="days">
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
-      <li>5</li>
-      <li>6</li>
-      <li>7</li>
-      <li>8</li>
-      <li>9</li>
-      <li>
-        <span class="active">10</span>
-      </li>
-      <li>11</li>
-      <li>12</li>
-      <li>13</li>
-      <li>14</li>
-      <li>15</li>
-      <li>16</li>
-      <li>17</li>
-      <li>18</li>
-      <li>19</li>
-      <li>20</li>
-      <li>21</li>
-      <li>22</li>
-      <li>23</li>
-      <li>24</li>
-      <li>25</li>
-      <li>26</li>
-      <li>27</li>
-      <li>28</li>
-      <li>29</li>
-      <li>30</li>
-      <li>31</li>
+    <ul id="days" class="days">
+
     </ul>
   </body>
+  <script>
+    // create a array of 12 size to store the start day of each month
+    var startDay = new Array(12);
+    startDay[0] = 5;
+    startDay[1] = 1;
+    startDay[2] = 1;
+    startDay[3] = 4;
+    startDay[4] = 6;
+    startDay[5] = 2;
+    startDay[6] = 4;
+    startDay[7] = 0;
+    startDay[8] = 3;
+    startDay[9] = 5;
+    startDay[10] = 1;
+    startDay[11] = 3;
+
+    var numDays = new Array(12);
+    numDays[0] = 31;
+    numDays[1] = 28;
+    numDays[2] = 31;
+    numDays[3] = 30;
+    numDays[4] = 31;
+    numDays[5] = 30;
+    numDays[6] = 31;
+    numDays[7] = 31;
+    numDays[8] = 30;
+    numDays[9] = 31;
+    numDays[10] = 30;
+    numDays[11] = 31;
+
+    // Modify dom element ul "weekdays" to start the days based on startDay
+    function setWeekdays(n) {
+        var list = document.getElementById("weekdays");
+        // console.log(list)
+        var entry;
+        // add list of 7 days to weekdays
+        for (var i = 0; i < 7; i++) {
+          entry = document.createElement('li');
+          entry.appendChild(document.createTextNode( getDay( (i+startDay[n]+1)%7 ) ));
+          list.appendChild(entry);
+        }
+        // console.log(weekdays);
+        var month = document.getElementById("month_name");
+        month.innerHTML = getMonth(n) + "<br><span style='font-size:18px'>2022</span>";
+        varday_list = document.getElementById("days");
+        varday_list.innerHTML = "";
+        for (var i = 0; i < numDays[n]; i++) {
+          entry = document.createElement('li');
+          entry.appendChild(document.createTextNode(i+1));
+          varday_list.appendChild(entry);
+        }
+    }
+    function getDay(n) {
+        var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        return days[n];
+    }
+    function getMonth(n){
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        return months[n];
+    }
+    setWeekdays(3);
+</script>
 </html>
