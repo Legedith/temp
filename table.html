@@ -14,8 +14,8 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .styled-table thead tr {
-    background-color: #009879;
-    color: #ffffff;
+    background-color: #ff4800;
+    color: #e8e8e4;
     text-align: left;
 }
 .styled-table th,
@@ -23,20 +23,40 @@
     padding: 12px 15px;
 }
 .styled-table tbody tr {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #ffd7ba;
 }
 
 .styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+    background-color: #ece4db;
 }
 
 .styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #fae1dd;
 }
 .styled-table tbody tr.active-row {
     font-weight: bold;
-    color: #009879;
+    color: #d00000;
 }
+.lun{
+  background-color: #ffd7ba;
+  
+}
+.lun:hover{
+    background-color: #ff4800;
+    color: #e8e8e4;
+    /* make text bold */
+    font-weight: bold;
+  }
+.body{
+  color: #9d0208;
+}
+/* add on hover to scope row */
+.styled-table tbody tr:hover {
+    background-color: #fcd5ce;
+    color: #370617;
+    /* make text bold */
+    font-weight: bold;
+  }
 	</style>
 </head>
 <body>
@@ -62,7 +82,7 @@
       <td title="Anjeneya Swami Kare (Assistant Professor)">ALGORITHAM</td>
       <td title="Digambar Pawar (Associate Professor) ">DBMS</td>
       <td title="Digambar Pawar (Associate Professor) ">DBMS</td>
-      <td rowspan="7">LUNCH</td>
+      <td class="lun" rowspan="7">LUNCH</td>
       <td>E1</td>
       <td>E1</td>
       <td>-</td>
