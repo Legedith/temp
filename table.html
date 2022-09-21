@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>time_table</title>
+	<style type="text/css">
+		.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+	</style>
+</head>
+<body>
+	<center><table class="styled-table">
+    <thead>
+        <tr>
+            <th>DAYS/TIME</th>
+            <th>9-10</th>
+            <th>10-11</th>
+            <th>11-12</th>
+            <th>12-01</th>
+            <th>01-02</th>
+            <th>02-03</th>
+            <th>03-04</th>
+            <th>04-05</th>
+            <th>05-06</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+      <th scope="row">Monday</th>
+      <td>E6</td>
+      <td title="Anjeneya Swami Kare (Assistant Professor)">ALGORITHAM</td>
+      <td title="Digambar Pawar (Associate Professor) ">DBMS</td>
+      <td title="Digambar Pawar (Associate Professor) ">DBMS</td>
+      <td rowspan="7">LUNCH</td>
+      <td>E1</td>
+      <td>E1</td>
+      <td>-</td>
+      <td>E5</td>
+    </tr>
+   <tr>
+      <th scope="row">Tuesday</th>
+      <td>E2</td>
+      <td>SE</td>
+      <td>SE</td>
+      <td title="Digambar Pawar (Associate Professor) ">DBMS</td>
+      <td>CS&TW</td>
+      <td>CS&TW</td>
+      <td>CS&TW</td>
+      <td>-</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Wednesday</th>
+      <td title="Digambar Pawar (Associate Professor) ">DBMS LAB</td>
+      <td title="Digambar Pawar (Associate Professor) ">DBMS LAB</td>
+      <td title="Digambar Pawar (Associate Professor) ">DBMS LAB</td>
+      <td title="Nagamani M. (Assistant Professor)">SE</td>
+      <td title="Nagender Kumar S. (Associate Professor)">IT LAB</td>
+      <td title="Nagender Kumar S. (Associate Professor)">IT LAB</td>
+      <td title="Nagender Kumar S. (Associate Professor)">IT LAB</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th scope="row">Thursday</th>
+      <td>E4</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>E2</td>
+      <td>E2</td>
+      <td>E5</td>
+      <td>E5</td>
+    </tr>
+    <tr>
+      <th scope="row">Friday</th>
+      <td>E6</td>
+      <td>E6</td>
+      <td>E4</td>
+      <td>E4</td>
+      <td title="Anjeneya Swami Kare (Assistant Professor)">ALGORITHM</td>
+      <td title="Anjeneya Swami Kare (Assistant Professor)">ALGORITHM</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th scope="row">Saturday</th>
+      <td title="Nagamani M. (Assistant Professor)">SE LAB</td>
+      <td title="Nagamani M. (Assistant Professor)">SE LAB</td>
+      <td title="Nagamani M. (Assistant Professor)">SE LAB</td>
+      <td>-</td>
+      <td title="Wilson Naik (Assistant Professor)">SPM</td>
+      <td title="Wilson Naik (Assistant Professor)">SPM</td>
+      <td title="Wilson Naik (Assistant Professor)">SPM</td>
+      <td></td>
+    </tr>
+        <!-- and so on... -->
+    </tbody>
+</table>
+</center>
+
+</body>
+</html>

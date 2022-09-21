@@ -1,0 +1,28 @@
+
+.parent_div{
+background-color: gray;
+height: 400px;
+width: 700px;
+display: grid;
+margin: auto;
+padding: auto;
+/*grid-template-columns: 105px 105px 105px;
+grid-template-rows: 105px 105px;*/
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: 1fr 1fr ;
+
+}
+.item1{
+background-color:yellow;
+}
+.item2{
+    background-color:red;
+ }
+.item3{
+    background-color:green;
+}
+.item4{
+    background-color:blue;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    }

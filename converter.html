@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>converter</title>
+    <link rel="stylesheet" href="converter.html">
+    <script >
+       function convert()
+        {
+            var ans=0;
+         var number = document.forms["RegForm"]["Name"].value;
+         var what1 =  document.forms["RegForm"]["to"];  
+         var what2 =  document.forms["RegForm"]["from"];  
+        var e = document.getElementById("w1");
+        var value = e.value;
+        var text = e.options[e.selectedIndex].text;
+        var e1 = document.getElementById("w2");
+        var value1 = e1.value;
+        var text1 = e1.options[e1.selectedIndex].text;
+
+         if(number==""){
+                window.alert("Please enter the value to be converted");
+                number.focus(); 
+                return false; 
+            }
+            if (what1.selectedIndex < 0)                  
+            { 
+                alert("Please enter your choice."); 
+                what.focus(); 
+                return false; 
+            } 
+        if (what2.selectedIndex < 0)                  
+            { 
+                alert("Please enter your choice."); 
+                what.focus(); 
+                return false; 
+            } 
+
+          if(value=="METERS"&&value1=="METERS") {
+            document.getElementById("para").innerHTML =number+"METERS";
+            return true;
+          } 
+
+          if(value=="METERS"&&value1=="CENTI-METERS") {
+            document.getElementById("para").innerHTML =number*100+"centi meters";
+            } 
+            
+          if(value=="METERS"&&value1=="KILOMETER") {
+            document.getElementById("para").innerHTML =number/1000+"kilometers";
+          } 
+
+          if(value=="METERS"&&value1=="MILLIMETER") {
+            document.getElementById("para").innerHTML =number*1000+"milimeters";
+            alert(number*1000+"milimeters");
+            } 
+            if(value=="CENTI-METERS"&&value1=="METERS") {
+            document.getElementById("para").innerHTML =number/100+"METERS";
+          } 
+
+          if(value=="CENTI-METERS"&&value1=="CENTI-METERS") {
+            document.getElementById("para").innerHTML =number+"centi meters";
+            } 
+            
+          if(value=="CENTI-METERS"&&value1=="KILOMETER") {
+            document.getElementById("para").innerHTML =number/100000+"kilometers";
+          } 
+
+          if(value=="CENTI-METERS"&&value1=="MILLIMETER") {
+            document.getElementById("para").innerHTML =number*10+"milimeters";
+            } 
+            if(value=="KILOMETER"&&value1=="METERS") {
+            document.getElementById("para").innerHTML =number*1000+"METERS";
+          } 
+
+          if(value=="KILOMETER"&&value1=="CENTI-METERS") {
+            document.getElementById("para").innerHTML =number*100000+"centi meters";
+            } 
+            
+          if(value=="KILOMETER"&&value1=="KILOMETER") {
+            document.getElementById("para").innerHTML =number+"kilometers";
+          } 
+
+          if(value=="KILOMETER"&&value1=="MILLIMETER") {
+            document.getElementById("para").innerHTML =number*1000000+"milimeters";
+            } 
+            if(value=="MILLIMETER"&&value1=="METERS") {
+            document.getElementById("para").innerHTML =number/1000+"METERS";
+          } 
+
+          if(value=="MILLIMETER"&&value1=="CENTI-METERS") {
+            document.getElementById("para").innerHTML =number/10+"centi meters";
+            } 
+            
+          if(value=="MILLIMETER"&&value1=="KILOMETER") {
+            document.getElementById("para").innerHTML =number/1000000+"kilometers";
+          } 
+
+          if(value=="MILLIMETER"&&value1=="MILLIMETER") {
+            document.getElementById("para").innerHTML =number+"milimeters";
+            } 
+    
+       
+
+}
+    </script>
+</head>
+`<center>
+    <body >
+        
+    <div class="align"></div>
+    <p id="inner"></p>
+    <form name="RegForm" action="" onsubmit="return convert()" method="GET" style="border: 2px solid black;">
+
+       <label for="">from</label> <input type="text" id="value" name="Name">
+       <select type="text" value="" name="from" id="w1"> 
+        <option id="M">METERS</option> 
+        <option id="CM">CENTI-METERS</option> 
+        <option id="KM">KILOMETER</option> 
+        <option id="MM">MILLIMETER</option> 
+        </select></p>
+
+        <label for="">TO</label>  <select type="text" value="" name="to" id="w2"> 
+            <option id="M">METERS</option> 
+            <option id="CM">CENTI-METERS</option> 
+            <option id="KM">KILOMETER</option> 
+            <option id="MM">MILLIMETER</option> 
+            </select>&nbsp<input type="submit" value="CONVERT" name="Submit">
+          
+  <p id="para">result will be displayed here</p>
+</form>
+</body>
+</center>
+</html>

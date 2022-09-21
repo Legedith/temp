@@ -1,0 +1,54 @@
+
+.parent_div{
+    background-color: gray;
+    display: grid;
+    height: 300px;
+    width: 700px;
+    grid-template-columns: 1fr 250px 1fr 1fr;
+    grid-template-rows: 1fr 1fr ;
+    
+    }
+    .inner_div{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .item1{
+        background-color:red;
+    }
+    .item2{
+        background-color: green;
+    }
+    .item3{
+        background-color: blue;
+    }
+    .item4{
+        background-color: yellow;
+    }
+    .item5{
+        background-color: brown;
+        grid-column: 1/2;
+        grid-row: 2/4;
+    }
+    .item6{
+        background-color: aqua;
+    }
+    .item7{
+        background-color: black;
+    }
+    .item8{
+        background-color: blueviolet;
+    }
+    .item9{
+        background-color: yellowgreen;
+    }
+    .item10{
+        background-color: rgb(43, 255, 0);
+    }
+    .item11{
+        background-color: rgb(228, 18, 182);
+        grid-row: 2/4;
+        grid-column: 3/5;
+    }
+    
+    

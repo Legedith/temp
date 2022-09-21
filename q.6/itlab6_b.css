@@ -1,0 +1,42 @@
+.parent_div{
+    background-color: gray;
+    height: 500px;
+    width: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr  ;
+    grid-template-rows: 1fr 1fr 1fr;
+
+}
+.inner_parent{
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 1fr;
+}
+
+
+.item1{
+    background-color:red;
+}
+.item2{
+    background-color: green;
+}
+.item3{
+    background-color: blue;
+}
+.item4{
+    background-color: yellow;
+    grid-row: 2/4;
+    grid-column:2/3 ;
+}
+.item5{
+    background-color: brown;
+}
+.item6{
+    background-color: aqua;
+}
+.inner_item1{
+    background-color: pink;
+}
+.inner_item2{
+    background-color:red;
+}
