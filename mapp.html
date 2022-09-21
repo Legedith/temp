@@ -1,0 +1,31 @@
+<html>
+<head>
+<title> Indian Map </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.js" integrity="sha256-OztcN49BsVSoupBpIZaUwczM6+GLsXuA8IJF+W9SsBU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.9/datamaps.ind.js" integrity="sha256-dIqkWXhup1J7R2OiniHh0/nH6hw0ELzNSKfBkO1WHlQ=" crossorigin="anonymous"></script>
+    <script>
+        $( function(){
+            var election = new Datamap({
+                scope: 'india',
+                element: document.getElementById('map'),
+                setProjection: function (element) {
+                    var projection = d3.geo.mercator()
+                        .center([78.9629, 23.5937]) // always in [East Latitude, North Longitude]
+                        .scale(1000);
+                    var path = d3.geo.path().projection(projection);
+                    return { path: path, projection: projection };
+                },
+                geographyConfig: {
+                    dataUrl: 'https://rawgit.com/Anujarya300/bubble_maps/master/data/geography-data/india.topo.json'
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="map" style="height: 800px;">
+    </div>
+</body>
+</html>
