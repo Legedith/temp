@@ -11,12 +11,14 @@
       margin: 0;
       font-family: Roboto, Arial, sans-serif;
       font-size: 14px;
-      color: #666;
+      color: rgb(255, 242, 0);
       }
       h1 {
       margin: 0 0 20px;
       font-weight: 400;
-      color: #1c87c9;
+      color: #e5f4fd;
+      /* make font bold */
+      font-weight: bold;
       }
       p {
       margin: 0 0 5px;
@@ -28,12 +30,13 @@
       align-items: center;
       min-height: 100vh;
       background: #1c87c9;
+      background-image: url('https://thumbs.gfycat.com/BraveOptimalBaleenwhale-size_restricted.gif');
+		
       }
       form {
       padding: 25px;
       margin: 25px;
       box-shadow: 0 2px 5px #f5f5f5; 
-      background: #f5f5f5; 
       }
       .fas {
       margin: 25px 10px 0;
@@ -88,15 +91,14 @@
       margin-left: 28%;
       }
       }
+      body {
+			background-color: #AB2836;
+			}
+      
     </style>
   </head>
   <body>
     <div class="main-block">
-      <div class="left-part">
-        <i class="fas fa-envelope"></i>
-        <i class="fas fa-at"></i>
-        <i class="fas fa-mail-bulk"></i>
-      </div>
       <form action="https://google.com">
         <h1>Mail Sending</h1>
         <div class="info">
@@ -105,7 +107,7 @@
           <input type="text" name="name" placeholder="CC/BCC">
           <input type="text" name="name" placeholder="SUBJECT">
         </div>
-        <p>Message</p>
+        <p><strong>Content:</strong></p>
         <div>
           <textarea rows="4"></textarea>
         </div>

@@ -1,96 +1,106 @@
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>customer registration</title>
-	<style type="text/css">
-		.myDiv{
-    		width:50%;
-    		height:100%;
-    		background:red;
-			}
-	</style>
-	<script type="text/javascript">
-		function FormValidation()
-		{
-			var name1 = document.forms["RegForm"]["Name"];               
-    		var email = document.forms["RegForm"]["EMail"];    
-    		var phone = document.forms["RegForm"]["phnum"]; 
-    		var name=document.RegForm.name.value; 
-    		// if (name.length<20) 
-    		// {
-    		// 	return true; 
-    		// }
-    		// else
-    		// {
-    		// 	window.alert("Please enter a valid e-mail address.");
-    		// }
-    		var user = document.getElementsByTagName("em").value;
-    		var pattern =/^[a-z A-Z]+@[A-Z]+\.[a-z A-Z]+{3+$/;
-        	if (pattern.test(user)) {
-            	return true;
-        	}
-       	 else
-        {
-          window.alert("Please enter a valid e-mail address."); 
-        email.focus(); 
-        return false;   
-        }
-        if(phone.value == 10)
-        {
-        	return true;
-        }
-        else
-        {
-        	window.alert("please enter 10 digit"); 
-        phone.focus(); 
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Come, let's register you!</title>
+    <script type="text/javascript">
+      function FormValidation() {
+        var name1 = document.forms["RegForm"]["Name"];
+        var email = document.forms["RegForm"]["EMail"];
+        var phone = document.forms["RegForm"]["phnum"];
+        var name = document.RegForm.name.value;
+        // if (name.length
+        //< 20)
+      // {
+      // 	return true; 
+      // }
+      // else
+      // {
+      // 	window.alert("Please enter a valid e-mail address.");
+      // }
+      var user = document.getElementsByTagName("em").value;
+      var pattern = /^[a-z A-Z]+@[A-Z]+\.[a-z A-Z]+{3+$/;
+      if (pattern.test(user)) {
+        return true;
+      } else {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
         return false;
-        }
+      }
+      if (phone.value == 10) {
+        return true;
+      } else {
+        window.alert("please enter 10 digit");
+        phone.focus();
+        return false;
+      }
+      }
+    </script>
+  </head>
+  <body>
+	<style>
+		.myDiv{
+			width: 80%;
+			height: 100%;
+			background: #e4d7d830;
+			color: blanchedalmond;
+			font-size: 25px;
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			/* allign content to center of screen */
+			margin: auto;
+			/* add padding to content */
+			padding-top: 10%;
 		}
-	</script>
-</head>
-<body>
-	<center><h1 style="background-color:red; width: 500px;">CUSTOMER REGISTRATION</h1></center>
-	<center><div class="myDiv">
-		 <form name="RegForm"onsubmit="return FormValidation()" method="post">
-		 	<label>NAME : </label><br>
-		 	<input type="text" name="name" size="20" required >
-		 	<br>
-		 	<br>
-		 	<label>CITY : </label><br>
-		 	<input type="text" name="lname" required>
-		 	<br>
-		 	<br>
-		 	<label>PHONE NUMBER:</label><br>
-		 	<input type="phone" name="phnum" required id="ph" pattern="^\d{10}$" type="text">
-		 	<br>
-		 	<br>
-		 	<label>E-mail:</label><br>
-		 	<input type="email" name="em1" id="em">
-		 	<br>
-		 	<br>
-		 	<label>Gender :</label>
-		 	 <input type="radio" name="gender" value="f">Male
-		 	 <input type="radio" name="gender" value="m">Female
-		 	<br>
-		 	<br>
-		 	<label>Address :</label>
-		 	<br>
-		 	<textarea>INTER Address</textarea> 
-		 	<br>
-		 	<br>
-		 	<label>Language:</label>
-		 	<br>
-		 	<br>
-		 	<input type="checkbox" name="" required>HINDI
-		 	<input type="checkbox" name=""required>ENGLISH
-		 	<input type="checkbox" name="" required>TELGU
-		 	<br>
-		 	<br>
-		 	<input type="submit" value="SUBMIT">
-		 	<input type="reset" value="Reset" name="">
-		 </form>
-		</div></center>
-</body>
+		/* change body color */
+		body {
+			background-color: #AB2836;
+			background-image: url('https://img.itch.zone/aW1hZ2UvNTA4MzgwLzI2MzY1NTAuZ2lm/original/xtkEQm.gif');
+		}
+
+	</style>
+    <center>
+      <h1 style="background-color:rgba(255, 255, 255, 0.3); color:#e4d7d8;">CUSTOMER REGISTRATION</h1>
+    </center>
+    <center>
+      <div class="myDiv">
+        <form name="RegForm" onsubmit="return FormValidation()" method="post">
+          <label>NAME : </label>
+          <input type="text" name="name" size="20" required>
+          <br>
+          <br>
+          <label>CITY : </label>
+          <input type="text" name="lname" required>
+          <br>
+          <br>
+          <label>PHONE NUMBER:</label>
+          
+          <input type="phone" name="phnum" required id="ph" pattern="^\d{10}$" type="text">
+          <br>
+          <br>
+          <label>E-mail:</label>
+          
+          <input type="email" name="em1" id="em">
+          <br>
+          <br>
+          <label  style="font-size: 23px;">Gender :</label>
+          <input type="radio" name="gender" value="f">Male <input type="radio" name="gender" value="m">Female <br>
+          <br>
+          <label  style="font-size: 26px;">Address :</label>
+          <br>
+          <textarea>Where do you live?</textarea>
+          <br>
+          <br>
+          <label style="font-size: 26px;">Language:</label>
+          <br>
+          <br>
+          <input type="checkbox" name="" required>HINDI <input type="checkbox" name="" required>ENGLISH <input type="checkbox" name="" required>TELGU <br>
+          <br>
+          <input type="submit" value="SUBMIT">
+          <input type="reset" value="Reset" name="">
+        </form>
+      </div>
+    </center>
+
+  </body>
 </html>
 <html>
