@@ -1,0 +1,62 @@
+<!-- Signup page consisting of email, username, Password and confirm password -->
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <title>Signup</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="validate.js"></script>
+    </head>
+    <body class="border">
+
+        <div style=" 
+        /* Big text size */
+        font-size: 40px;
+        /* bold */
+        
+        " class="font-weight-bold px-2 py-2">
+            Enter your details
+        </div>
+        <div class="px-3 h6">
+            Please fill in this form
+        </div>
+        
+        <!-- 
+            horizontal line
+         -->
+        <hr>
+        <form action="javascript:handleIt()" class="font-weight-bold  px-3 py-1">
+            <div class="form-group">
+                <label for="username">Full Name</label>
+                <input type="text" placeholder="Enter Full name" class="form-control" id="username" style="background-color: #eaebe9 ;">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" placeholder="Enter Email" class="form-control" id="email" style="background-color: #eaebe9 ;">
+            </div>
+            
+            <div class="form-group">
+                <label for="pwd">Password</label>
+                <input type="password" class="form-control" placeholder="Enter Password" id="pwd" style="background-color: #eaebe9 ;">
+            </div>
+            <div class="form-group pb-3">
+                <label for="pwd">Repeat Password</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Repeat Password" style="background-color: #eaebe9 ;">
+            </div>
+            <hr>
+            <div class="pb-3">
+                By submitting your deatils you agree to our <a href="#" ><u>Terms & Privacy</u></a>
+            </div>
+                <button type="submit" class="btn btn-success btn-lg btn-block">Search</button>
+        </form>
+      
+  <div class="mx-2 p-3 mb-2 bg-light text-center h6">
+    <span class="abt">Already have an account? <a href="#"><u>Sign In</u></a></span>
+  </div>
+    
+    </body>
+</html> 
