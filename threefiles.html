@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Select a file to display</h2>
+
+<div id="">
+<button type="button" onclick="First()">First</button>
+<button type="button" onclick="Second()">Second</button>
+<button type="button" onclick="Third()">Third</button>
+</div>
+<div id="demo"></div>
+
+<script>
+function First() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "first.txt", true);
+  xhttp.send();
+}
+function Second() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "second.txt", true);
+  xhttp.send();
+}
+function Third() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    //   Display the file
+    document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "third.txt", true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
