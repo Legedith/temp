@@ -40,17 +40,23 @@ theorem uniformAverage_add {Ω : Type*} [Fintype Ω] (f g : Ω → ℝ) :
 
 theorem uniformAverage_mul_left {Ω : Type*} [Fintype Ω] (a : ℝ) (f : Ω → ℝ) :
     uniformAverage (fun ω => a * f ω) = a * uniformAverage f := by
-  simp [uniformAverage, Finset.mul_sum, mul_div_assoc]
+  unfold uniformAverage
+  rw [← Finset.mul_sum]
+  ring
 
 theorem uniformAverage_mul_right {Ω : Type*} [Fintype Ω] (f : Ω → ℝ) (a : ℝ) :
     uniformAverage (fun ω => f ω * a) = uniformAverage f * a := by
-  simp [uniformAverage, Finset.sum_mul, div_mul_eq_mul_div]
+  unfold uniformAverage
+  rw [← Finset.sum_mul]
+  ring
 
 /-- A finite sum can be moved outside a uniform average. -/
 theorem uniformAverage_sum {Ω ι : Type*} [Fintype Ω] (s : Finset ι) (f : ι → Ω → ℝ) :
     uniformAverage (fun ω => ∑ i ∈ s, f i ω) =
       ∑ i ∈ s, uniformAverage (f i) := by
-  simp [uniformAverage, Finset.sum_comm, Finset.sum_div]
+  unfold uniformAverage
+  rw [Finset.sum_comm]
+  rw [Finset.sum_div]
 
 /-- A `Fintype` sum can be moved outside a uniform average. -/
 theorem uniformAverage_fintypeSum {Ω ι : Type*} [Fintype Ω] [Fintype ι]
@@ -72,7 +78,7 @@ theorem sq_uniformAverage_le_uniformAverage_sq {Ω : Type*} [Fintype Ω]
     (f : Ω → ℝ) :
     (uniformAverage f) ^ 2 ≤ uniformAverage (fun ω => (f ω) ^ 2) := by
   simpa [uniformAverage] using
-    (Finset.sum_div_card_sq_le_sum_sq_div_card
+    (sum_div_card_sq_le_sum_sq_div_card
       (s := (Finset.univ : Finset Ω)) (f := f))
 
 /--
@@ -139,11 +145,15 @@ theorem average_sum_sq_le_card [Nonempty C] :
     letI := L.fintypeΩ
     uniformAverage (fun ω => (∑ c, L.U ω c) ^ 2) ≤ (Fintype.card C : ℝ) := by
   letI := L.fintypeΩ
+  classical
   have hexpand :
       (fun ω => (∑ c, L.U ω c) ^ 2) =
         (fun ω => ∑ c, ∑ d, L.U ω c * L.U ω d) := by
     funext ω
-    simp only [pow_two, Finset.sum_mul, Finset.mul_sum]
+    rw [pow_two, Finset.sum_mul]
+    apply Finset.sum_congr rfl
+    intro c _
+    rw [Finset.mul_sum]
   rw [hexpand, uniformAverage_fintypeSum]
   simp_rw [uniformAverage_fintypeSum]
   calc
@@ -155,13 +165,14 @@ theorem average_sum_sq_le_card [Nonempty C] :
           intro d _
           by_cases hcd : c = d
           · subst d
-            simp only [if_pos rfl]
+            change uniformAverage (fun ω => L.U ω c * L.U ω c) ≤ 1
             apply uniformAverage_mono
             intro ω
             have hb := L.bounded ω c
             rw [abs_le] at hb
             nlinarith
-          · simp [hcd, L.pair_cancel hcd]
+          · change uniformAverage (fun ω => L.U ω c * L.U ω d) ≤ 0
+            rw [L.pair_cancel hcd]
     _ = (Fintype.card C : ℝ) := by simp
 
 /-- The average of the coordinate sum is `card C * α`. -/
@@ -198,11 +209,11 @@ end PairCancellingLaw
 def supportConflictGraph {V : Type*} [DecidableEq V]
     (supports : Finset (Finset V)) : SimpleGraph V where
   Adj u v := u ≠ v ∧ ∃ S ∈ supports, u ∈ S ∧ v ∈ S
-  symm := by
+  symm.symm := by
     intro u v huv
     rcases huv with ⟨hne, S, hS, hu, hv⟩
     exact ⟨hne.symm, S, hS, hv, hu⟩
-  loopless := by
+  loopless.irrefl := by
     intro u huu
     exact huu.1 rfl
 
