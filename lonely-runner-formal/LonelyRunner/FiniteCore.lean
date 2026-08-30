@@ -166,11 +166,15 @@ theorem average_sum_sq_le_card [Nonempty C] :
           by_cases hcd : c = d
           · subst d
             rw [if_pos rfl]
-            apply uniformAverage_mono
-            intro ω
-            have hb := L.bounded ω c
-            rw [abs_le] at hb
-            nlinarith
+            calc
+              uniformAverage (fun ω => L.U ω c * L.U ω c)
+                  ≤ uniformAverage (fun _ : L.Ω => (1 : ℝ)) := by
+                    apply uniformAverage_mono
+                    intro ω
+                    have hb := L.bounded ω c
+                    rw [abs_le] at hb
+                    nlinarith
+              _ = 1 := uniformAverage_const 1
           · rw [if_neg hcd]
             rw [L.pair_cancel hcd]
     _ = (Fintype.card C : ℝ) := by simp
