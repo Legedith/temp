@@ -14,16 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Lean
-        uses: leanprover/lean-action@v1
-        with:
-          auto-config: false
-          build: false
-          test: false
-          lint: false
-          use-mathlib-cache: false
-          use-github-cache: false
-          leanchecker: false
+      - name: Install elan and the pinned Lean toolchain
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \
+            | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/lean" --version
+          "$HOME/.elan/bin/lake" --version
 
       - name: Resolve pinned dependencies
         run: lake update
@@ -34,15 +31,15 @@ jobs:
       - name: Build all checked declarations
         run: lake build
 
+      - name: Reject proof placeholders
+        run: |
+          if grep -R -n -E '(^|[^A-Za-z])(sorry|admit|axiom)([^A-Za-z]|$)' \
+              lonely-runner-formal/LonelyRunner lonely-runner-formal/LonelyRunner.lean; then
+            echo "Proof placeholder or custom axiom found"
+            exit 1
+          fi
+
       - name: Independent kernel verification
-        uses: leanprover/lean-action@v1
         env:
           LEAN_NUM_THREADS: "1"
-        with:
-          auto-config: false
-          build: false
-          test: false
-          lint: false
-          use-mathlib-cache: false
-          use-github-cache: false
-          leanchecker: true
+        run: lake env leanchecker
