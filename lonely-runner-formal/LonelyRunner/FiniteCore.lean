@@ -165,13 +165,13 @@ theorem average_sum_sq_le_card [Nonempty C] :
           intro d _
           by_cases hcd : c = d
           · subst d
-            change uniformAverage (fun ω => L.U ω c * L.U ω c) ≤ 1
+            rw [if_pos rfl]
             apply uniformAverage_mono
             intro ω
             have hb := L.bounded ω c
             rw [abs_le] at hb
             nlinarith
-          · change uniformAverage (fun ω => L.U ω c * L.U ω d) ≤ 0
+          · rw [if_neg hcd]
             rw [L.pair_cancel hcd]
     _ = (Fintype.card C : ℝ) := by simp
 
