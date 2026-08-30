@@ -1,0 +1,12 @@
+name = "lonely_runner_formal"
+version = "0.1.0"
+defaultTargets = ["LonelyRunner"]
+
+[[lean_lib]]
+name = "LonelyRunner"
+srcDir = "lonely-runner-formal"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.33.1"
