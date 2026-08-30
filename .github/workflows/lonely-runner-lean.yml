@@ -39,7 +39,7 @@ jobs:
             exit 1
           fi
 
-      - name: Independent kernel verification
+      - name: Independent kernel replay of project declarations
         env:
           LEAN_NUM_THREADS: "1"
-        run: lake env leanchecker
+        run: lake env leanchecker LonelyRunner
