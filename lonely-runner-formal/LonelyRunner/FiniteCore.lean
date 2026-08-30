@@ -145,6 +145,7 @@ theorem average_sum_sq_le_card [Nonempty C] :
     letI := L.fintypeΩ
     uniformAverage (fun ω => (∑ c, L.U ω c) ^ 2) ≤ (Fintype.card C : ℝ) := by
   letI := L.fintypeΩ
+  letI : Nonempty L.Ω := L.nonemptyΩ
   classical
   have hexpand :
       (fun ω => (∑ c, L.U ω c) ^ 2) =
