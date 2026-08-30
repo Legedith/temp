@@ -13,10 +13,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: leanprover/lean-action@v1
+
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
         with:
-          build: true
+          auto-config: false
+          build: false
           test: false
           lint: false
-          use-mathlib-cache: true
+          use-mathlib-cache: false
+          use-github-cache: false
+          leanchecker: false
+
+      - name: Resolve pinned dependencies
+        run: lake update
+
+      - name: Download mathlib cache
+        run: lake exe cache get
+
+      - name: Build all checked declarations
+        run: lake build
+
+      - name: Independent kernel verification
+        uses: leanprover/lean-action@v1
+        env:
+          LEAN_NUM_THREADS: "1"
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-mathlib-cache: false
+          use-github-cache: false
           leanchecker: true
